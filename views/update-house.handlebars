@@ -1,0 +1,17 @@
+<h2 style="text-align: center">Update {{house.name}}:</h2>
+
+<div class="container">
+    <div class="row" style="text-align: center">
+		<form id="update-house" action="/houses/{{house.id}}?_method=PUT" method="post">
+            <div class="form-group">
+                House Name: <input type="text" name="name" value="{{house.name}}">
+            </div>
+            <div class="form-group">
+            	<input class="btn btn-warning" type="submit" value="Update House">
+            </div>
+        </form>
+        <div class="form-group">
+        	<form class="delete-form" action="/houses/{{house.id}}?_method=DELETE" method="POST"><button class="btn btn-danger" type = "submit">Delete House</button>
+        </div>
+    </div>
+</div>

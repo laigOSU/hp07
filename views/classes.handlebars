@@ -1,0 +1,46 @@
+<div class="page-header">
+    <h1 style="text-align: center">Hogwarts Classes:</h1>
+</div>
+
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <th>Class Name</th>
+            <th>Professor</th>
+        </thead>
+        <tbody>
+            {{#each classes}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    {{#if this.teacherfname}}<td>{{this.teacherfname}} {{this.teacherlname}}</td>{{else}}<td>Needs a Professor</td>{{/if}}
+                    <td><a class="btn btn-primary" href="/classes/{{this.id}}">Update/Delete</a></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<hr>
+
+<h2 style="text-align: center">Add Class:</h2>
+
+<div class="container">
+    <div class="row" style="text-align: center">
+        <form id="addclass" action="/classes" method="post">
+            <div class="form-group">
+                Class name: <input type="text" name="name">
+            </div>
+
+            <div class="form-group">
+                Professor: <select name="teacher">
+                    {{#each professors}}
+                        <option value="{{this.id}}">{{this.fname}} {{this.lname}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group">
+            <input class="btn btn-success" type="submit" value="Add Class">
+            </div>
+        </form>
+    </div>
+</div>

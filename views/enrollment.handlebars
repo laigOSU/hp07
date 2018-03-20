@@ -1,0 +1,70 @@
+<div class="page-header">
+    <h1 style="text-align: center">Hogwarts Students:</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <h2>See a Class's Students</h2>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <th>Class Name</th>
+                </thead>
+                <tbody>
+                    {{#each classes}}
+                    <tr>
+                        <td><a href="/enrollment/class/{{this.id}}">{{this.name}}'s Student</a></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <h2>See a Student's Classes</h2>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <th>Name</th>
+                </thead>
+                <tbody>
+                    {{#each students}}
+                    <tr>
+                        <td><a href="/enrollment/student/{{this.id}}">{{this.fname}} {{this.lname}}'s Classes</a></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<h2 style="text-align: center">Add a Student to a Class:</h2>
+
+<div class="container">
+    <div class="row" style="text-align: center">
+        <form id="addstudent" action="/enrollment" method="post">
+            <div class="form-group">
+                Class: <select name="cid"> 
+                    {{#each classes}}
+                        <option value="{{id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+
+
+            <div class="form-group">
+                Student: <select name="sid"> 
+                    {{#each students}}
+                    <option value="{{this.id}}">{{this.fname}} {{this.lname}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group">
+            <input class="btn btn-success" type="submit" value="Add Student to Class">
+            </div>
+        </form>
+    </div>
+</div>

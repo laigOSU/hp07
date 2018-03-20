@@ -1,0 +1,15 @@
+<h2 style="text-align: center">{{class.name}}'s Students:</h2>
+
+<div class="container">
+    <div class="row" style="text-align: center">
+		<div class="form-group">
+		{{#each students}}
+			<div>
+				{{this.fname}} {{this.lname}}
+			</div>
+				<form action="/enrollment/class/{{this.id}}?_method=DELETE" method="POST"><button class="btn btn-sm btn-danger" type = "submit">Remove Student</button></form>
+
+		{{/each}}
+		</div>
+    </div>
+</div>

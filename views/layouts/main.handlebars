@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<title>Harry Potter Database</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    {{#each jsscripts}}
+    <script src="/static/{{this}}"></script>
+    {{/each}}
+</head>
+<body>
+	<nav class="navbar navbar-default" id = "myNav">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand hover" href="/">Harry Potter Database</a>
+            </div>
+     
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hover"><a href = "/students">Students</a></li>
+                    <li class="hover"><a href = "/classes">Classes</a></li>
+                    <li class="hover"><a href = "/houses">Houses</a></li>
+                    <li class="hover"><a href = "/professors">Professors</a></li>
+                    <li class="hover"><a href = "/enrollment">Enrollment</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+	</nav>
+
+	{{{body}}}
+</body>
+</html>

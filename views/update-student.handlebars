@@ -1,0 +1,29 @@
+<h2 style="text-align: center">Update {{student.fname}} {{student.lname}}:</h2>
+
+<div class="container">
+    <div class="row" style="text-align: center">
+		<form id="update-student" action="/students/{{student.id}}?_method=PUT" method="POST">
+            <div class="form-group">
+                First name: <input type="text" name="fname" value="{{student.fname}}">
+            </div>
+            <div class="form-group">
+                Last name: <input type="text" name="lname" value="{{student.lname}}">
+            </div>
+            <div class="form-group">
+                House: <select name="house" id="house-selector">
+                    {{#each houses}}
+                    	<option value="{{this.id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group">
+            	<input class="btn btn-warning" type="submit" value="Update Student">
+            </div>
+        </form>
+        <div class="form-group">
+        	<form class="delete-form" action="/students/{{student.id}}?_method=DELETE" method="POST"><button class="btn btn-danger" type = "submit">Delete Student</button>
+        </div>
+    </div>
+</div>
+<script defer>selecthouse({{student.house}});</script>
+
